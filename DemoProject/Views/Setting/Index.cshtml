@@ -1,0 +1,34 @@
+﻿@model List<Setting>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Value2</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Last Modified</th>
+            <th>Is Deleted</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var setting in Model)
+        {
+            <tr>
+                <td>@setting.Id</td>
+                <td>@setting.Key</td>
+                <td>@setting.Value</td>
+                <td>@setting.Value2</td>
+                <td>@setting.Description</td>
+                <td>@setting.Created</td>
+                <td>@setting.LastModified</td>
+                <td>@setting.IsDeleted</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a type="button" asp-controller="Setting" asp-action="Create" class="btn btn-primary">Create</a>
+
