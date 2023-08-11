@@ -1,1 +1,95 @@
-﻿<button type="button" id="openModal">Open Modal</button>
+﻿@model DemoProject.Models.Setting
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Value2</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Last Modified</th>
+            <th>Is Deleted</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Key</td>
+                <td>@Model.Value</td>
+                <td>@Model.Value2</td>
+                <td>@Model.Description</td>
+                <td>@Model.Created</td>
+                <td>@Model.LastModified</td>
+                <td>@Model.IsDeleted</td>
+
+            </tr>
+    </tbody>
+</table>
+<button type="button" id="openModal">Update</button>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit</h2>
+        <form asp-action="Edit" asp-controller="Setting">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Key"></label>
+                <input asp-for="Key" class="form-control" />
+                <span asp-validation-for="Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Value"></label>
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Value2"></label>
+                <input asp-for="Value2" class="form-control" />
+                <span asp-validation-for="Value2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Created"></label>
+                <input type="datetime" asp-for="Created" class="form-control" />
+                <span asp-validation-for="Created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastModified"></label>
+                <input type="datetime" asp-for="LastModified" class="form-control" />
+                <span asp-validation-for="LastModified" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDeleted"></label>
+                <input type="radio" asp-for="IsDeleted" value="true" /> Yes
+                <input type="radio" asp-for="IsDeleted" value="false" /> No
+                <span asp-validation-for="IsDeleted" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Open modal
+        $("#openModal").click(function () {
+            $("#myModal").css("display", "block");
+        });
+
+        // Close modal
+        $(".close").click(function () {
+            $("#myModal").css("display", "none");
+        });
+    });
+</script>
+

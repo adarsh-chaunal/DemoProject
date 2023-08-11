@@ -1,0 +1,31 @@
+﻿@model DemoProject.Models.Setting
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Value2</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Last Modified</th>
+            <th>Is Deleted</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Key</td>
+            <td>@Model.Value</td>
+            <td>@Model.Value2</td>
+            <td>@Model.Description</td>
+            <td>@Model.Created</td>
+            <td>@Model.LastModified</td>
+            <td>@Model.IsDeleted</td>
+
+        </tr>
+    </tbody>
+</table>
+<form method="post">
+    <button type="button" asp-action="Delete" asp-controller="Setting" asp-route-id="@Model.Id"  class="btn btn-primary">Delete</button>
+</form>

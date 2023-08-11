@@ -20,7 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
 .modal-content {
-    max-height: 80vh; 
+    max-height: 50vh; 
     overflow-y: auto; 
+    max-width: 80%;
+    margin: 10%;
 }
